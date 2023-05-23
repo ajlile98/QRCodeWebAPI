@@ -15,11 +15,15 @@ namespace QRCodeWebAPI.Data {
 
         public bool DeleteUser(int id)
         {
-            throw new NotImplementedException();
+            String sql = "DELETE FROM QRCodeApiSchema.Users WHERE UserId = @UserId";
+            DynamicParameters sqlParameters = new DynamicParameters(); 
+            sqlParameters.Add("@UserId", id);
+            return _dapper.ExecuteSqlWithParameters(sql, sqlParameters);
         }
 
         public User GetUser(int id)
         {
+            String sql = "SELECT User FROM Users WHERE UserId = @UserId";
             throw new NotImplementedException();
         }
 
